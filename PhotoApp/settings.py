@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -140,3 +141,7 @@ LOGIN_REDIRECT_URL = '/travelBook'
 LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'travelBook.User'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'

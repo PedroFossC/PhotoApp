@@ -48,7 +48,7 @@
   </nav>
 </div>
 {% for image_folder in image_folder_list %}
-<a href="{% url 'travel_book:folder_detail' image_folder.pk %}">
+<a href="{% url 'travel_book:images_list' image_folder.pk %}">
   <h3>{{image_folder.name}}</h3>
   <h4>From : {{image_folder.city}}, {{image_folder.country}}</h4>
 </a>
