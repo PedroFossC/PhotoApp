@@ -1,4 +1,4 @@
-{%extends "base.html"%}{% block title %}Home{%endblock%} {% block body %}
+{% extends 'base.html' %}{% block title %}Folders{% endblock %} {% block body %}
 <div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -47,4 +47,9 @@
     </div>
   </nav>
 </div>
-{% endblock %}
+{% for image_folder in image_folder_list %}
+<a href="{% url 'travel_book:folder_detail' image_folder.pk %}">
+  <h3>{{image_folder.name}}</h3>
+  <h4>From : {{image_folder.city}}, {{image_folder.country}}</h4>
+</a>
+{% endfor %} {% endblock %}
