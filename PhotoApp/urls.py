@@ -15,13 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
+from django.conf import settings
+
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
-from travelBook.views import LandingPage
+from travelBook.views import LandingPageView, SignUpView
 
 urlpatterns = [
-    path('', LandingPage.as_view(), name='landing_page'),
+    path('', LandingPageView.as_view(), name='landing_page'),
     path('admin/', admin.site.urls),
     path('travelBook/', include('travelBook.urls', namespace='travel_book')),
+    path('signup/', SignUpView.as_view(), name='sign_up'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    urlpatterns += staticfiles_urlpatterns()

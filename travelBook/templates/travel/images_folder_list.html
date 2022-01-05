@@ -47,6 +47,9 @@
     </div>
   </nav>
 </div>
+<a href="{% url 'travel_book:folder_create' %}">
+  Create a new images folder for your trip
+</a>
 {% for image_folder in image_folder_list %}
 <a href="{% url 'travel_book:images_list' image_folder.pk %}">
   <h3>{{image_folder.name}}</h3>
